@@ -1,0 +1,40 @@
+import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+import { ReactUseDateCalendar } from '..';
+
+const meta = {
+  title: 'Example/ReactUseDateCalendar',
+  component: ReactUseDateCalendar,
+  parameters: {
+    layout: 'centered'
+  }
+} satisfies Meta<typeof ReactUseDateCalendar>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => {
+    return <ReactUseDateCalendar />;
+  }
+};
+
+export const MinMaxDateExample: Story = {
+  render: () => {
+    const minDate = new Date('2022/03/09');
+    const maxDate = new Date('2029/03/09');
+    return <ReactUseDateCalendar minDate={minDate} maxDate={maxDate} />;
+  }
+};
+
+export const SpecialDays: Story = {
+  render: () => {
+    return (
+      <ReactUseDateCalendar
+        className="Dtee"
+        specialDays={['29.03.2025', '30.03.2025', '31.03.2025', '01.04.2025']}
+        onSelect={(e) => console.log(e)}
+      />
+    );
+  }
+};

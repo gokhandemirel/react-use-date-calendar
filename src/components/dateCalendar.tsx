@@ -1,0 +1,44 @@
+import React from 'react';
+import styled from 'styled-components';
+import Days from './days';
+import Header from './header';
+import { DateCalendarProvider } from '../context/dateCalendarContext';
+import { IReactUseDateCalendarProps } from '../types';
+import { GlobalStyles } from '../styles/globalStyles';
+import { theme } from '../theme';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+  height: 264px;
+  padding: 10px;
+  background-color: ${theme.colors.white};
+  border: solid 1px ${theme.colors.dark2};
+  border-radius: 10px;
+`;
+
+function DateCalendar({
+  className = '',
+  format = 'DD/MM/YYYY',
+  locale = 'en',
+  minDate = new Date(1900, 1, 1),
+  maxDate = new Date(2099, 1, 1),
+  specialDays = [],
+  onSelect
+}: IReactUseDateCalendarProps) {
+  return (
+    <DateCalendarProvider
+      options={{ className, format, locale, minDate, maxDate, specialDays, onSelect }}
+    >
+      <GlobalStyles />
+      <Wrapper className={className}>
+        <Header />
+        <Days />
+      </Wrapper>
+    </DateCalendarProvider>
+  );
+}
+
+export default DateCalendar;
