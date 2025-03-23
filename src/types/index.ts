@@ -1,5 +1,6 @@
 export interface IReactUseDateCalendarProps {
   className?: string;
+  dayOfWeekFormatter?: string;
   format?: string;
   locale?: string;
   minDate?: Date;

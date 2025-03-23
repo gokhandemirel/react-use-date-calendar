@@ -30,11 +30,13 @@ export const MinMaxDateExample: Story = {
 export const SpecialDays: Story = {
   render: () => {
     return (
-      <ReactUseDateCalendar
-        className="Dtee"
-        specialDays={['29.03.2025', '30.03.2025', '31.03.2025', '01.04.2025']}
-        onSelect={(e) => console.log(e)}
-      />
+      <ReactUseDateCalendar className="Dtee" specialDays={['29.03.2025', '30.03.2025', '31.03.2025', '01.04.2025']} />
     );
+  }
+};
+
+export const CustomDayOfWeek: Story = {
+  render: () => {
+    return <ReactUseDateCalendar dayOfWeekFormatter="ddd" />;
   }
 };

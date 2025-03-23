@@ -6,13 +6,14 @@ import { DateCalendarProvider } from '../context/dateCalendarContext';
 import { IReactUseDateCalendarProps } from '../types';
 import { GlobalStyles } from '../styles/globalStyles';
 import { theme } from '../theme';
+import DayOfWeek from './dayOfWeek';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 250px;
-  height: 264px;
+  height: 290px;
   padding: 10px;
   background-color: ${theme.colors.white};
   border: solid 1px ${theme.colors.dark2};
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
 
 function DateCalendar({
   className = '',
+  dayOfWeekFormatter = 'dd',
   format = 'DD/MM/YYYY',
   locale = 'en',
   minDate = new Date(1900, 1, 1),
@@ -30,11 +32,12 @@ function DateCalendar({
 }: IReactUseDateCalendarProps) {
   return (
     <DateCalendarProvider
-      options={{ className, format, locale, minDate, maxDate, specialDays, onSelect }}
+      options={{ className, dayOfWeekFormatter, format, locale, minDate, maxDate, specialDays, onSelect }}
     >
       <GlobalStyles />
       <Wrapper className={className}>
         <Header />
+        <DayOfWeek />
         <Days />
       </Wrapper>
     </DateCalendarProvider>

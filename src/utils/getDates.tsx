@@ -3,10 +3,10 @@ import moment from 'moment';
 function getDates(date: Date) {
   const s = moment(date).startOf('month');
   const e = moment(date).endOf('month');
-  const start = moment(date).startOf('month').subtract(s.day(), 'day').add(1, 'day');
+  const start = moment(date).startOf('month').subtract(s.day(), 'day');
   const end = moment(date)
     .endOf('month')
-    .add(6 - e.day(), 'day');
+    .add(5 - e.day(), 'day');
   const dates = getDateRange(start, end);
 
   return {
