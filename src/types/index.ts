@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IReactUseDateCalendarProps {
   className?: string;
   dayOfWeekFormatter?: string;
@@ -7,6 +9,7 @@ export interface IReactUseDateCalendarProps {
   maxDate?: Date;
   specialDays?: string[];
   onSelect?: (e: any) => void;
+  renderDay?: (date: Date) => React.ReactNode;
 }
 
 export interface IDateCalendarContextProps {

@@ -34,6 +34,7 @@ const YearMonth = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 6px;
+  cursor: pointer;
 `;
 
 const Popover = styled.div`
@@ -41,15 +42,20 @@ const Popover = styled.div`
   flex-direction: column;
   gap: 5px;
   width: 100%;
-  height: 214px;
+  height: 240px;
   padding: 10px;
   background-color: ${theme.colors.white};
+  border: solid 1px ${theme.colors.dark};
+  border-radius: 10px;
   position: absolute;
   z-index: 10;
   top: 44px;
   left: 0;
   overflow: auto;
   box-sizing: border-box;
+  & > div {
+    cursor: pointer;
+  }
 `;
 
 export default function Header() {
@@ -132,7 +138,7 @@ export default function Header() {
                 setShowYear(false);
               }}
               data-year={item}
-              style={{ color: item === moment(date).year() ? theme.colors.grey : '' }}
+              style={{ fontWeight: item === moment(date).year() ? 600 : '' }}
             >
               {item}
             </div>

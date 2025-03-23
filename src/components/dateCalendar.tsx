@@ -28,11 +28,12 @@ function DateCalendar({
   minDate = new Date(1900, 1, 1),
   maxDate = new Date(2099, 1, 1),
   specialDays = [],
-  onSelect
+  onSelect,
+  renderDay
 }: IReactUseDateCalendarProps) {
   return (
     <DateCalendarProvider
-      options={{ className, dayOfWeekFormatter, format, locale, minDate, maxDate, specialDays, onSelect }}
+      options={{ className, dayOfWeekFormatter, format, locale, minDate, maxDate, specialDays, onSelect, renderDay }}
     >
       <GlobalStyles />
       <Wrapper className={className}>

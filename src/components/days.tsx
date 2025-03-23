@@ -83,7 +83,7 @@ export default function Days() {
               $outsideMonth={outsideMonth}
               $specialDay={specialDay}
             >
-              {item ? moment(item).format('D') : ''}
+              {options.renderDay ? options.renderDay(item) : moment(item).format('D')}
             </Day>
           );
         })}
