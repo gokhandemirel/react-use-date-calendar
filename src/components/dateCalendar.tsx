@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 
 function DateCalendar({
   className = '',
+  weekStart = 1,
   dayOfWeekFormatter = 'dd',
   format = 'DD/MM/YYYY',
   locale = 'en',
@@ -33,7 +34,18 @@ function DateCalendar({
 }: IReactUseDateCalendarProps) {
   return (
     <DateCalendarProvider
-      options={{ className, dayOfWeekFormatter, format, locale, minDate, maxDate, specialDays, onSelect, renderDay }}
+      options={{
+        className,
+        weekStart,
+        dayOfWeekFormatter,
+        format,
+        locale,
+        minDate,
+        maxDate,
+        specialDays,
+        onSelect,
+        renderDay
+      }}
     >
       <GlobalStyles />
       <Wrapper className={className}>

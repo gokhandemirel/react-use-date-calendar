@@ -7,7 +7,7 @@ const DateCalendarContext = createContext<IDateCalendarContextProps>({});
 
 const DateCalendarProvider = ({ options, children }: IDateCalendarContextProps) => {
   const [date, setDate] = useState<any>({});
-  const { dates, selectedMonth } = useMemo(() => getDates(date), [date]);
+  const { dates, selectedMonth } = useMemo(() => getDates(date, options.weekStart), [date]);
   return (
     <DateCalendarContext.Provider value={{ options, date, setDate, dates, selectedMonth }}>
       {children}

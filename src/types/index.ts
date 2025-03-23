@@ -2,6 +2,7 @@ import React from "react";
 
 export interface IReactUseDateCalendarProps {
   className?: string;
+  weekStart?: number;
   dayOfWeekFormatter?: string;
   format?: string;
   locale?: string;

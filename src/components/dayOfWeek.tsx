@@ -22,7 +22,10 @@ export default function DayOfWeek() {
     <Wrapper>
       {[...Array(7)].map((_, index) => (
         <Title key={index}>
-          {moment().add(index, 'day').locale(options.locale).format(options.dayOfWeekFormatter)}
+          {moment()
+            .add(options.weekStart + index, 'day')
+            .locale(options.locale)
+            .format(options.dayOfWeekFormatter)}
         </Title>
       ))}
     </Wrapper>

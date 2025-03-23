@@ -22,6 +22,8 @@ const Component = () => {
 ## Props
 
 - `className?` - Date calendar parent container className
+- `weekStart?` - Week start day index number
+- `dayOfWeekFormatter?` - Week title format
 - `format?` - Date format
 - `locale?` - Moment localization locale key
 - `minDate?` - Date object
