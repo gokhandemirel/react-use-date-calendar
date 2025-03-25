@@ -17,7 +17,7 @@ function ReactUseDateCalendar({
   weekStart = 1,
   dayOfWeekFormatter = 'dd',
   format = 'DD.MM.YYYY',
-  locale = 'en',
+  locale = 'tr',
   minDate = new Date(1900, 1, 1),
   maxDate = new Date(2099, 1, 1),
   specialDays = [],

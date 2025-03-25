@@ -23,7 +23,7 @@ export default function DateCalendar() {
 
   return (
     <Wrapper ref={ref}>
-      <Textbox onFocus={() => setShowCalendar(true)} />
+      <Textbox className={options.className} onFocus={() => setShowCalendar(true)} />
       {showCalendar && <Calendar />}
     </Wrapper>
   );

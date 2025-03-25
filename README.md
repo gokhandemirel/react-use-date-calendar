@@ -22,6 +22,7 @@ const Component = () => {
 ## Props
 - `value?` - Value format property
 - `className?` - Date calendar parent container className
+- `weekStart?` - Week start date index
 - `dayOfWeekFormatter?` - Week title format
 - `format?` - Date format
 - `locale?` - Moment localization locale key

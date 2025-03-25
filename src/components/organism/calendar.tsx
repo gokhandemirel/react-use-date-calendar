@@ -22,9 +22,9 @@ const Wrapper = styled.div`
 `;
 
 export default function Calendar() {
-  const { options } = useContext(DateCalendarContext);
+  const {} = useContext(DateCalendarContext);
   return (
-    <Wrapper className={options.className}>
+    <Wrapper>
       <Header />
       <DayOfWeek />
       <Days />

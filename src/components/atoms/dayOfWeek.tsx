@@ -20,14 +20,17 @@ export default function DayOfWeek() {
   const { options } = useContext(DateCalendarContext);
   return (
     <Wrapper>
-      {[...Array(7)].map((_, index) => (
-        <Title key={index}>
-          {moment()
-            .add(index - 1, 'day')
-            .locale(options.locale)
-            .format(options.dayOfWeekFormatter)}
-        </Title>
-      ))}
+      {[...Array(7)].map((_, index) => {
+        const date = moment().startOf('week');
+        return (
+          <Title key={index}>
+            {moment(date)
+              .add(index + options.weekStart, 'day')
+              .locale(options.locale)
+              .format(options.dayOfWeekFormatter)}
+          </Title>
+        );
+      })}
     </Wrapper>
   );
 }

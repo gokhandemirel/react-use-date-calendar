@@ -48,6 +48,12 @@ export const RenderDay: Story = {
   }
 };
 
+export const CustomClassName: Story = {
+  render: () => {
+    return <ReactUseDateCalendar className="custom-datepicker-input" />;
+  }
+};
+
 export const ActionButtonExample: Story = {
   render: () => {
     return (
