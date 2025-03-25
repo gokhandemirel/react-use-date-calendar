@@ -1,0 +1,10 @@
+/.storybook
+/node_modules
+/src/components
+/src/context
+/src/hooks
+/src/stories
+/src/styles
+/src/theme
+/src/types
+/src/utils
