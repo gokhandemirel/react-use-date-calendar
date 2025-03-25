@@ -1,6 +1,6 @@
 {
   "name": "react-use-date-calendar",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -14,11 +14,10 @@
     "react",
     "react-components",
     "react-input",
-    "quantity",
-    "number",
-    "input",
-    "decrease",
-    "increase"
+    "datepicker",
+    "date",
+    "datetime",
+    "calendar"
   ],
   "author": "Gökhan Demirel",
   "license": "MIT",
