@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import moment from 'moment/min/moment-with-locales';
-import { DateCalendarContext } from '../context/dateCalendarContext';
+import { DateCalendarContext } from '../../context/dateCalendarContext';
 
 const Wrapper = styled.div`
   display: grid;
@@ -23,7 +23,7 @@ export default function DayOfWeek() {
       {[...Array(7)].map((_, index) => (
         <Title key={index}>
           {moment()
-            .add(options.weekStart + index, 'day')
+            .add(index - 1, 'day')
             .locale(options.locale)
             .format(options.dayOfWeekFormatter)}
         </Title>

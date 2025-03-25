@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import moment from 'moment/min/moment-with-locales';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import styled from 'styled-components';
-import { DateCalendarContext } from '../context/dateCalendarContext';
-import { theme } from '../theme';
+import { DateCalendarContext } from '../../context/dateCalendarContext';
+import { theme } from '../../theme';
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ const Popover = styled.div`
   flex-direction: column;
   gap: 5px;
   width: 100%;
-  height: 240px;
+  height: 172px;
   padding: 10px;
   background-color: ${theme.colors.white};
   border: solid 1px ${theme.colors.dark};

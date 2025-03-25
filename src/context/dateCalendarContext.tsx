@@ -6,10 +6,13 @@ import { IDateCalendarContextProps } from '../types';
 const DateCalendarContext = createContext<IDateCalendarContextProps>({});
 
 const DateCalendarProvider = ({ options, children }: IDateCalendarContextProps) => {
-  const [date, setDate] = useState<any>({});
+  const [date, setDate] = useState<Date>();
+  const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const { dates, selectedMonth } = useMemo(() => getDates(date, options.weekStart), [date]);
   return (
-    <DateCalendarContext.Provider value={{ options, date, setDate, dates, selectedMonth }}>
+    <DateCalendarContext.Provider
+      value={{ options, date, setDate, showCalendar, setShowCalendar, dates, selectedMonth }}
+    >
       {children}
     </DateCalendarContext.Provider>
   );

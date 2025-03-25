@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ReactUseDateCalendar } from '..';
 import moment from 'moment';
+import ReactUseDateCalendar from '..';
 
 const meta = {
   title: 'Example/ReactUseDateCalendar',
@@ -45,5 +45,19 @@ export const CustomDayOfWeek: Story = {
 export const RenderDay: Story = {
   render: () => {
     return <ReactUseDateCalendar renderDay={(date) => <div>{moment(date).format('dd')}</div>} />;
+  }
+};
+
+
+
+export const ActionButtonExample: Story = {
+  render: () => {
+    return (
+      <ReactUseDateCalendar
+        manualContinue
+        actionButtonCancel={<div>Cancel</div>}
+        actionButtonContinue={<div>Continue</div>}
+      />
+    );
   }
 };

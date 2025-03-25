@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import moment from 'moment/min/moment-with-locales';
-import { DateCalendarContext } from '../context/dateCalendarContext';
-import { theme } from '../theme';
+import { DateCalendarContext } from '../../context/dateCalendarContext';
+import { theme } from '../../theme';
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ const Day = styled.div<{ $today?: boolean; $selected?: boolean; $outsideMonth?: 
 `;
 
 export default function Days() {
-  const { options, dates, date, setDate, selectedMonth } = useContext(DateCalendarContext);
+  const { options, dates, date, setDate, setShowCalendar, selectedMonth } = useContext(DateCalendarContext);
   return (
     <Wrapper>
       <DayWrapper>
@@ -76,7 +76,10 @@ export default function Days() {
               key={index}
               onClick={() => {
                 setDate(item);
-                options.onSelect && options.onSelect(moment(date).locale(options.locale).format(options.format));
+                if (!options.manualContinue) {
+                  options.onSelect && options.onSelect(moment(date).locale(options.locale).format(options.format));
+                  setShowCalendar(false);
+                }
               }}
               $today={today}
               $selected={selected}
