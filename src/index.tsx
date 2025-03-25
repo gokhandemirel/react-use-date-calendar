@@ -54,4 +54,4 @@ function ReactUseDateCalendar({
   );
 }
 
-export default ReactUseDateCalendar;
+export { ReactUseDateCalendar };
