@@ -25,7 +25,7 @@ export default function Textbox(props: IInputProps) {
     setShowCalendar(true);
   };
 
-  return !options.input ? (
+  return !options.customInput ? (
     <Wrapper
       {...props}
       type="text"
@@ -35,7 +35,7 @@ export default function Textbox(props: IInputProps) {
       ref={ref}
     />
   ) : (
-    options.input({
+    options.customInput({
       value: moment(date).format(options.format),
       onFocus: handleOpenCalendar,
       readOnly: true,

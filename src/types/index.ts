@@ -25,7 +25,7 @@ export interface IDateCalendarContextProps {
   date?: Date;
   setDate?: (x: Date) => void;
   showCalendar?: boolean;
-  setShowCalendar?: () => void;
+  setShowCalendar?: (x: boolean) => void;
   calendarPosition?: ICalendarPosition;
   setCalendarPosition?: (x: ICalendarPosition) => void;
   onSelect?: () => void;
