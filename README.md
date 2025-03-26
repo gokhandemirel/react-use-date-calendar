@@ -34,6 +34,7 @@ const Component = () => {
 - `actionButtonCancel?` - React.Node element
 - `actionButtonContinue?` - React.Node element
 - `customInput?` - Custom html input element, required call argument props
+- `inline?` - Default open calendar (relative position)
 
 ## LICENSE
 

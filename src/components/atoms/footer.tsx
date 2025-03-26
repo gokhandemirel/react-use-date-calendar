@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { DateCalendarContext } from '../../context/dateCalendarContext';
+import moment from 'moment';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +22,8 @@ export default function Footer() {
   };
 
   const handleContinue = () => {
-    options.onSelect && options.onSelect(date);
+    const resultDate = moment(date).locale(options.locale).toDate();
+    options.onSelect && options.onSelect(resultDate);
     setShowCalendar(false);
   };
 

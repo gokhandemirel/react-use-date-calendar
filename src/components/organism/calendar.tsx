@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Days from '../molecules/days';
 import Header from './header';
 import { theme } from '../../theme';
@@ -8,7 +8,7 @@ import Footer from '../atoms/footer';
 import { DateCalendarContext } from '../../context/dateCalendarContext';
 import { ICalendarPosition } from '../../types';
 
-const Wrapper = styled.div<{ $calendarPosition: ICalendarPosition }>`
+const Wrapper = styled.div<{ $calendarPosition?: ICalendarPosition; $inline?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -17,15 +17,20 @@ const Wrapper = styled.div<{ $calendarPosition: ICalendarPosition }>`
   background-color: ${theme.colors.white};
   border: solid 1px ${theme.colors.dark2};
   border-radius: 10px;
-  position: absolute;
-  top: ${(props) => `${props.$calendarPosition.top + 12}px`};
-  z-index: 50;
+  ${({ $inline, $calendarPosition }) =>
+    !$inline &&
+    css`
+      position: absolute;
+      top: ${$calendarPosition.top + 12}px;
+      left: 0;
+      z-index: 50;
+    `}
 `;
 
 export default function Calendar() {
-  const { calendarPosition } = useContext(DateCalendarContext);
+  const { options, calendarPosition } = useContext(DateCalendarContext);
   return (
-    <Wrapper $calendarPosition={calendarPosition}>
+    <Wrapper $calendarPosition={calendarPosition} $inline={options.inline}>
       <Header />
       <DayOfWeek />
       <Days />

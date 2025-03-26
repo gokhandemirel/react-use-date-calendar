@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import moment from 'moment/min/moment-with-locales';
 import { DateCalendarContext } from '../../context/dateCalendarContext';
 
@@ -20,7 +20,7 @@ export default function DayOfWeek() {
   const { options } = useContext(DateCalendarContext);
   return (
     <Wrapper>
-      {[...Array(7)].map((_, index) => {
+      {[...Array(7)].map((_, index: number) => {
         const date = moment().startOf('week');
         return (
           <Title key={index}>

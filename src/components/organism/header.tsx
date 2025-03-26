@@ -70,11 +70,11 @@ export default function Header() {
   const ref = useRef(null);
 
   const handlePrev = () => {
-    setDate(moment(date).subtract(1, 'month'));
+    setDate(moment(date).subtract(1, 'month').toDate());
   };
 
   const handleNext = () => {
-    setDate(moment(date).add(1, 'month'));
+    setDate(moment(date).add(1, 'month').toDate());
   };
 
   useEffect(() => {
@@ -115,11 +115,11 @@ export default function Header() {
       </Button>
       {showMonth && (
         <Popover>
-          {months.map((item, index) => (
+          {months.map((item: number, index: number) => (
             <div
               key={index}
               onClick={() => {
-                setDate(moment(date).month(item));
+                setDate(moment(date).month(item).toDate());
                 setShowMonth(false);
               }}
             >
@@ -130,11 +130,11 @@ export default function Header() {
       )}
       {showYear && (
         <Popover ref={ref}>
-          {years.map((item, index) => (
+          {years.map((item: number, index: number) => (
             <div
               key={index}
               onClick={() => {
-                setDate(moment(date).year(item));
+                setDate(moment(date).year(item).toDate());
                 setShowYear(false);
               }}
               data-year={item}

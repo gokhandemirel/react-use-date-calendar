@@ -1,5 +1,7 @@
 import React from 'react';
 
+export type TDate = Date;
+
 export interface IReactUseDateCalendarProps {
   value?: string;
   className?: string;
@@ -10,20 +12,21 @@ export interface IReactUseDateCalendarProps {
   minDate?: Date;
   maxDate?: Date;
   specialDays?: string[];
-  onSelect?: (e: Date) => void;
-  renderDay?: (date: Date) => React.ReactNode;
+  onSelect?: (date: TDate) => void;
+  renderDay?: (date: TDate) => React.ReactNode;
   manualContinue?: boolean;
   actionButtonCancel?: string | React.ReactNode;
   actionButtonContinue?: string | React.ReactNode;
   customInput?: (args: any) => any;
+  inline?: boolean;
 }
 
 export interface IDateCalendarContextProps {
   options?: IReactUseDateCalendarProps;
-  dates?: Date[];
+  dates?: TDate[];
   selectedMonth?: number;
-  date?: Date;
-  setDate?: (x: Date) => void;
+  date?: TDate;
+  setDate?: (x: TDate) => void;
   showCalendar?: boolean;
   setShowCalendar?: (x: boolean) => void;
   calendarPosition?: ICalendarPosition;

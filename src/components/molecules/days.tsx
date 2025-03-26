@@ -65,7 +65,7 @@ export default function Days() {
   return (
     <Wrapper>
       <DayWrapper>
-        {dates.map((item, index) => {
+        {dates.map((item: Date, index: number) => {
           const now = moment(new Date());
           const today = now.isSame(item, 'day');
           const selected = moment(item).isSame(date, 'day');
@@ -77,7 +77,8 @@ export default function Days() {
               onClick={() => {
                 setDate(item);
                 if (!options.manualContinue) {
-                  options.onSelect && options.onSelect(moment(date).locale(options.locale).format(options.format));
+                  const resultDate = moment(date).locale(options.locale).toDate();
+                  options.onSelect && options.onSelect(resultDate);
                   setShowCalendar(false);
                 }
               }}

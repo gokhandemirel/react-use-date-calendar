@@ -26,7 +26,8 @@ function ReactUseDateCalendar({
   manualContinue = false,
   actionButtonCancel = 'Cancel',
   actionButtonContinue = 'Continue',
-  customInput
+  customInput,
+  inline = false,
 }: IReactUseDateCalendarProps) {
   return (
     <DateCalendarProvider
@@ -45,7 +46,8 @@ function ReactUseDateCalendar({
         manualContinue,
         actionButtonContinue,
         actionButtonCancel,
-        customInput
+        customInput,
+        inline
       }}
     >
       <Wrapper>

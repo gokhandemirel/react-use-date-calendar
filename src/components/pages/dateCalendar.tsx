@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Calendar from '../organism/calendar';
 import Textbox from '../atoms/textbox';
 import useClickOutside from '../../hooks/useClickOutside';
@@ -17,14 +17,14 @@ export default function DateCalendar() {
 
   useEffect(() => {
     if (options.value) {
-      setDate(moment(options.value, options.format));
+      setDate(moment(options.value, options.format).toDate());
     }
   }, [options]);
 
   return (
     <Wrapper ref={ref}>
-      <Textbox />
-      {showCalendar && <Calendar />}
+      {!options.inline && <Textbox />}
+      {showCalendar || options.inline ? <Calendar /> : null}
     </Wrapper>
   );
 }

@@ -20,7 +20,7 @@ export const Default: Story = {
   }
 };
 
-export const FillValue: Story = {
+export const CustomValue: Story = {
   render: () => {
     return <ReactUseDateCalendar value="01.05.1990" />;
   }
@@ -54,12 +54,6 @@ export const RenderDay: Story = {
   }
 };
 
-export const CustomClassName: Story = {
-  render: () => {
-    return <ReactUseDateCalendar className="custom-datepicker-input" />;
-  }
-};
-
 export const ActionButtonExample: Story = {
   render: () => {
     return (
@@ -78,11 +72,25 @@ export const CustomInput: Story = {
       <ReactUseDateCalendar
         customInput={(args) => (
           <input
-            style={{ width: '120px', padding: '6px 8px', background: '#ededed', border: 'none', outline: 'none' }}
+            style={{
+              width: '120px',
+              padding: '6px 8px',
+              background: '#ededed',
+              border: 'solid 1px #454545',
+              fontSize: '16px',
+              lineHeight: '20px',
+              outline: 'none'
+            }}
             {...args}
           />
         )}
       />
     );
+  }
+};
+
+export const InlineCalendar: Story = {
+  render: () => {
+    return <ReactUseDateCalendar inline />;
   }
 };
