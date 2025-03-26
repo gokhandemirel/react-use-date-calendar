@@ -33,6 +33,7 @@ const Component = () => {
 - `manualContinue?` - Calendar auto close disabled closing status depends on action buttons
 - `actionButtonCancel?` - React.Node element
 - `actionButtonContinue?` - React.Node element
+- `customInput?` - Custom html input element, required call argument props
 
 ## LICENSE
 

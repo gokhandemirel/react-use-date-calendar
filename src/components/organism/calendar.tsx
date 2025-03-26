@@ -6,8 +6,9 @@ import { theme } from '../../theme';
 import DayOfWeek from '../atoms/dayOfWeek';
 import Footer from '../atoms/footer';
 import { DateCalendarContext } from '../../context/dateCalendarContext';
+import { ICalendarPosition } from '../../types';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ $calendarPosition: ICalendarPosition }>`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -17,14 +18,14 @@ const Wrapper = styled.div`
   border: solid 1px ${theme.colors.dark2};
   border-radius: 10px;
   position: absolute;
-  top: 44px;
+  top: ${(props) => `${props.$calendarPosition.top + 12}px`};
   z-index: 50;
 `;
 
 export default function Calendar() {
-  const {} = useContext(DateCalendarContext);
+  const { calendarPosition } = useContext(DateCalendarContext);
   return (
-    <Wrapper>
+    <Wrapper $calendarPosition={calendarPosition}>
       <Header />
       <DayOfWeek />
       <Days />

@@ -20,6 +20,12 @@ export const Default: Story = {
   }
 };
 
+export const FillValue: Story = {
+  render: () => {
+    return <ReactUseDateCalendar value="01.05.1990" />;
+  }
+};
+
 export const MinMaxDateExample: Story = {
   render: () => {
     const minDate = new Date('2022/03/09');
@@ -61,6 +67,21 @@ export const ActionButtonExample: Story = {
         manualContinue
         actionButtonCancel={<div>Cancel</div>}
         actionButtonContinue={<div>Continue</div>}
+      />
+    );
+  }
+};
+
+export const CustomInput: Story = {
+  render: () => {
+    return (
+      <ReactUseDateCalendar
+        customInput={(args) => (
+          <input
+            style={{ width: '120px', padding: '6px 8px', background: '#ededed', border: 'none', outline: 'none' }}
+            {...args}
+          />
+        )}
       />
     );
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface IReactUseDateCalendarProps {
   value?: string;
@@ -10,11 +10,12 @@ export interface IReactUseDateCalendarProps {
   minDate?: Date;
   maxDate?: Date;
   specialDays?: string[];
-  onSelect?: (e: any) => void;
+  onSelect?: (e: Date) => void;
   renderDay?: (date: Date) => React.ReactNode;
   manualContinue?: boolean;
   actionButtonCancel?: string | React.ReactNode;
   actionButtonContinue?: string | React.ReactNode;
+  customInput?: (args: any) => any;
 }
 
 export interface IDateCalendarContextProps {
@@ -22,9 +23,15 @@ export interface IDateCalendarContextProps {
   dates?: Date[];
   selectedMonth?: number;
   date?: Date;
-  setDate?: (x: any) => void;
+  setDate?: (x: Date) => void;
   showCalendar?: boolean;
-  setShowCalendar?: (x: any) => void;
-  onSelect?: (x: any) => void;
+  setShowCalendar?: () => void;
+  calendarPosition?: ICalendarPosition;
+  setCalendarPosition?: (x: ICalendarPosition) => void;
+  onSelect?: () => void;
   children?: React.ReactNode;
+}
+
+export interface ICalendarPosition {
+  top?: number;
 }

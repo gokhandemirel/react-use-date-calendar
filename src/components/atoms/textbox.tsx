@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useContext } from 'react';
+import React, { InputHTMLAttributes, useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { theme } from '../../theme';
 import { DateCalendarContext } from '../../context/dateCalendarContext';
@@ -17,6 +17,29 @@ const Wrapper = styled.input<IInputProps>`
 `;
 
 export default function Textbox(props: IInputProps) {
-  const { options, date } = useContext(DateCalendarContext);
-  return <Wrapper {...props} value={moment(date).format(options.format)} type="text" readOnly />;
+  const ref = useRef(null);
+  const { options, date, setShowCalendar, setCalendarPosition } = useContext(DateCalendarContext);
+
+  const handleOpenCalendar = () => {
+    setCalendarPosition({ top: ref?.current?.clientHeight });
+    setShowCalendar(true);
+  };
+
+  return !options.input ? (
+    <Wrapper
+      {...props}
+      type="text"
+      value={moment(date).format(options.format)}
+      onFocus={handleOpenCalendar}
+      readOnly
+      ref={ref}
+    />
+  ) : (
+    options.input({
+      value: moment(date).format(options.format),
+      onFocus: handleOpenCalendar,
+      readOnly: true,
+      ref: ref
+    })
+  );
 }
