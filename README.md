@@ -6,6 +6,11 @@
   npm install react-use-date-calendar
 ```
 
+## Requirements
+
+- `react >= 18.3.1`
+- `react-dom >= 18.3.1`
+
 ## Usage
 
 ```jsx
